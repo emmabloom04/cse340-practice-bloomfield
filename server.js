@@ -11,6 +11,7 @@ import path from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const NODE_ENV = process.env.NODE_ENV || 'production';
 const PORT = process.env.PORT || 3000;
 
 /**
