@@ -1,12 +1,16 @@
 
 // Imports
+
 import express from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
+
 /**
  * Declare Important Variables
  */
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 3000;
 const name = process.env.NAME; // <-- NEW
 
