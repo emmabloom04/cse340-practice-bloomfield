@@ -30,9 +30,10 @@ body {
 }
 
 .about-me {
+    margin: 50px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     img {
-        width: 100%;
+        width: 80%;
     }
 }
