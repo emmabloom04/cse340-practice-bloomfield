@@ -60,6 +60,13 @@ const app = express();
  * Configure Express middleware
  */
 
+// Middleware to make NODE_ENV available to all templates
+app.use((req, res, next) => {
+    res.locals.NODE_ENV = NODE_ENV.toLowerCase() || 'production';
+    // Continue to the next middleware or route handler
+    next();
+});
+
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 // Set EJS as the templating engine
