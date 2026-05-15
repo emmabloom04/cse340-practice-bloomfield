@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
     // Skip logging for routes that start with /. (like /.well-known/)
     if (!req.path.startsWith('/.')) {
-        console.log(`${req.method} ${req.url}`);
+        
     }
     next(); // Pass control to the next middleware or route
 });
