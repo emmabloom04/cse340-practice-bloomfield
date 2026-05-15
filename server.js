@@ -92,7 +92,15 @@ app.use((req, res, next) => {
      * Use res.locals.greeting to store the greeting message.
      * Hint: morning (before 12), afternoon (12-17), evening (after 17)
      */
-    
+    if (currentHour < 12) {
+
+    }
+    else if (currentHour > 12 && currentHour < 17) {
+
+    }
+    else if (currentHour > 17) {
+        
+    }
 
     next();
 });
