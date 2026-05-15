@@ -83,6 +83,20 @@ app.use((req, res, next) => {
     next();
 });
 
+// Global middleware for time-based greeting
+app.use((req, res, next) => {
+    const currentHour = new Date().getHours();
+
+    /**
+     * Create logic to set different greetings based on the current hour.
+     * Use res.locals.greeting to store the greeting message.
+     * Hint: morning (before 12), afternoon (12-17), evening (after 17)
+     */
+    
+
+    next();
+});
+
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 // Set EJS as the templating engine
