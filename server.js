@@ -45,6 +45,22 @@ app.use((req, res, next) => {
     next();
 });
 
+ // Global error handler - note the four parameters
+app.use((err, req, res, next) => {
+    // Log error details for developers
+    console.error('Error occurred:', err.message);
+    console.error('Stack trace:', err.stack);
+
+    // Determine response based on error type
+    const status = err.status || 500;
+    const message = status === 404 
+        ? 'The page you requested could not be found.' 
+        : 'An unexpected error occurred. Please try again later.';
+
+    // Send appropriate response to user
+    res.status(status).send(message);
+});
+
 /**
  * Routes
  */
