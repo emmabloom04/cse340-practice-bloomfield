@@ -67,6 +67,14 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use((req, res, next) => {
+    // Skip logging for routes that start with /. (like /.well-known/)
+    if (!req.path.startsWith('/.')) {
+        console.log(`${req.method} ${req.url}`);
+    }
+    next(); // Pass control to the next middleware or route
+});
+
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 // Set EJS as the templating engine
