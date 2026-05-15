@@ -157,7 +157,7 @@ app.get('/catalog/:courseId', (req, res, next) => {
 
     console.log(`Viewing course: ${courseId}, sorted by: ${sortBy}`);
 
-    res.render('course-detail', {
+    res.render('course-details', {
         title: `${course.id} - ${course.title}`,
         course: { ...course, sections: sortedSections },
         currentSort: sortBy
