@@ -115,25 +115,7 @@ app.get('/products', (req, res) => {
     const title = 'Our Products';
     res.render('products', { title });
 });
-// Test route for 500 errors
-// app.get('/test-error', (req, res, next) => {
-//     const err = new Error('This is a test error');
-//     err.status = 500;
-//     next(err);
-// });
 
-// All your real routes go above this point
-app.get('/', (req, res) => {
-    res.send('Home page');
-});
-
-app.get('/about', (req, res) => {
-    res.send('About page');
-});
-
-app.get('/products', (req, res) => {
-    res.send('Products page');
-});
 // Course catalog list page
 app.get('/catalog', (req, res) => {
     res.render('catalog', {
@@ -165,6 +147,25 @@ app.get('/catalog/:courseId', (req, res) => {
         title: `${course.id} - ${course.title}`,
         course: course
     });
+});
+// Test route for 500 errors
+// app.get('/test-error', (req, res, next) => {
+//     const err = new Error('This is a test error');
+//     err.status = 500;
+//     next(err);
+// });
+
+// All your real routes go above this point
+app.get('/', (req, res) => {
+    res.send('Home page');
+});
+
+app.get('/about', (req, res) => {
+    res.send('About page');
+});
+
+app.get('/products', (req, res) => {
+    res.send('Products page');
 });
 
 // Catch-all middleware for unmatched routes
