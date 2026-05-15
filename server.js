@@ -93,13 +93,13 @@ app.use((req, res, next) => {
      * Hint: morning (before 12), afternoon (12-17), evening (after 17)
      */
     if (currentHour < 12) {
-
+        res.locals.greeting = `<p>Good morning!</p>`;
     }
     else if (currentHour > 12 && currentHour < 17) {
-
+        res.locals.greeting = `<p>Good afternoon!</p>`;
     }
     else if (currentHour > 17) {
-        
+        res.locals.greeting = `<p>Good evening!</p>`;
     }
 
     next();
