@@ -78,6 +78,12 @@ app.get('/products', (req, res) => {
     const title = 'Our Products';
     res.render('products', { title });
 });
+// Test route for 500 errors
+app.get('/test-error', (req, res, next) => {
+    const err = new Error('This is a test error');
+    err.status = 500;
+    next(err);
+});
 
 // All your real routes go above this point
 app.get('/', (req, res) => {
