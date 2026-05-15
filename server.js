@@ -134,6 +134,13 @@ app.get('/about', (req, res) => {
 app.get('/products', (req, res) => {
     res.send('Products page');
 });
+// Course catalog list page
+app.get('/catalog', (req, res) => {
+    res.render('catalog', {
+        title: 'Course Catalog',
+        courses: courses
+    });
+});
 
 // Catch-all middleware for unmatched routes
 app.use((req, res, next) => {
