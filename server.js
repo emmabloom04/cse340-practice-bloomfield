@@ -99,18 +99,35 @@ app.use((req, res, next) => {
     next(err); // Forward to global error handler
 });
 
-// Global error handler processes both 404s and 500s
+// Global error handler
 app.use((err, req, res, next) => {
-    console.error(err.stack);
+    // Prevent infinite loops, if a response has already been sent, do nothing
+    if (res.headersSent || res.finished) {
+        return next(err);
+    }
 
+    // Determine status and template
     const status = err.status || 500;
-    const message = status === 404
-        ? 'The page you requested does not exist.'
-        : 'An unexpected server error occurred.';
+    const template = status === 404 ? '404' : '500';
 
-    res.status(status).send(message);
+    // Prepare data for the template
+    const context = {
+        title: status === 404 ? 'Page Not Found' : 'Server Error',
+        error: NODE_ENV === 'production' ? 'An error occurred' : err.message,
+        stack: NODE_ENV === 'production' ? null : err.stack,
+        NODE_ENV // Our WebSocket check needs this and its convenient to pass along
+    };
+
+    // Render the appropriate error template with fallback
+    try {
+        res.status(status).render(`errors/${template}`, context);
+    } catch (renderErr) {
+        // If rendering fails, send a simple error page instead
+        if (!res.headersSent) {
+            res.status(status).send(`<h1>Error ${status}</h1><p>An error occurred.</p>`);
+        }
+    }
 });
-
 
 // When in development mode, start a WebSocket server for live reloading
 if (NODE_ENV.includes('dev')) {
