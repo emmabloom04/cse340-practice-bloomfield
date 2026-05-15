@@ -79,6 +79,38 @@ app.get('/products', (req, res) => {
     res.render('products', { title });
 });
 
+// All your real routes go above this point
+app.get('/', (req, res) => {
+    res.send('Home page');
+});
+
+app.get('/about', (req, res) => {
+    res.send('About page');
+});
+
+app.get('/products', (req, res) => {
+    res.send('Products page');
+});
+
+// Catch-all middleware for unmatched routes
+app.use((req, res, next) => {
+    const err = new Error('Page Not Found');
+    err.status = 404;
+    next(err); // Forward to global error handler
+});
+
+// Global error handler processes both 404s and 500s
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+
+    const status = err.status || 500;
+    const message = status === 404
+        ? 'The page you requested does not exist.'
+        : 'An unexpected server error occurred.';
+
+    res.status(status).send(message);
+});
+
 
 // When in development mode, start a WebSocket server for live reloading
 if (NODE_ENV.includes('dev')) {
