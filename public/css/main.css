@@ -53,3 +53,8 @@ body {
         }
     }
 }
+img.error {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
