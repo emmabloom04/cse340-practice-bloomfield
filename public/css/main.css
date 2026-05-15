@@ -40,3 +40,7 @@ body {
         font-size: 1.4em;
     }
 }
+
+#error-gif {
+    margin: 0 auto;
+}
