@@ -238,19 +238,6 @@ app.get('/demo', addDemoHeaders, (req, res) => {
     });
 });
 
-// All your real routes go above this point
-app.get('/', (req, res) => {
-    res.send('Home page');
-});
-
-app.get('/about', (req, res) => {
-    res.send('About page');
-});
-
-app.get('/products', (req, res) => {
-    res.send('Products page');
-});
-
 // Catch-all middleware for unmatched routes
 app.use((req, res, next) => {
     const err = new Error('Page Not Found');
