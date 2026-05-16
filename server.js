@@ -104,6 +104,17 @@ app.use((req, res, next) => {
     next();
 });
 
+// Global middleware for random theme selection
+app.use((req, res, next) => {
+    const themes = ['blue-theme', 'green-theme', 'red-theme'];
+
+    // Your task: Pick a random theme from the array
+    const randomTheme = // Your random selection logic here
+    res.locals.bodyClass = randomTheme;
+
+    next();
+});
+
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 // Set EJS as the templating engine
