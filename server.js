@@ -234,6 +234,14 @@ app.get('/catalog/:courseId', (req, res, next) => {
         currentSort: sortBy
     });
 });
+
+// Demo page route with header middleware
+app.get('/demo', addDemoHeaders, (req, res) => {
+    res.render('demo', {
+        title: 'Middleware Demo Page'
+    });
+});
+
 // Test route for 500 errors
 // app.get('/test-error', (req, res, next) => {
 //     const err = new Error('This is a test error');
