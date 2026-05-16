@@ -32,3 +32,5 @@ const addLocalVariables = (req, res, next) => {
 
     next();
 }
+
+export { addLocalVariables };
