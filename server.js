@@ -106,7 +106,7 @@ app.use((req, res, next) => {
 
 // Global middleware for random theme selection
 app.use((req, res, next) => {
-    const themes = ['blue-theme', 'green-theme', 'red-theme'];
+    const themes = ['blue-theme', 'green-theme', 'red-theme', 'purple-theme', 'yellow-theme', 'dark-theme'];
 
     const randomTheme = themes[Math.floor(Math.random() * themes.length)];
     res.locals.bodyClass = randomTheme;
