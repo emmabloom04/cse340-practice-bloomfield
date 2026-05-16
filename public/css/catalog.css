@@ -152,3 +152,54 @@
         }
     }
 }
+
+/* Dark theme overrides */
+body.dark-theme {
+    .course-list .course-card {
+        border-color: #444;
+        background: #1e1e1e;
+        color: #ddd;
+
+        h3 a {
+            color: #66b3ff;
+        }
+
+        .course-id {
+            color: #aaa;
+        }
+
+        .course-description {
+            color: #ddd;
+        }
+    }
+
+    .course-header {
+        h1 {
+            color: #66b3ff;
+        }
+
+        .course-meta {
+            color: #aaa;
+        }
+
+        .course-description {
+            color: #ddd;
+        }
+    }
+
+    .sections .sections-header {
+        border-bottom-color: #66b3ff;
+
+        h2 {
+            color: #66b3ff;
+        }
+
+        .sort-options span {
+            color: #aaa;
+        }
+
+        .sort-options a {
+            color: #66b3ff;
+        }
+    }
+}
