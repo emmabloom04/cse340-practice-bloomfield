@@ -127,7 +127,8 @@ const addDemoHeaders = (req, res, next) => {
     // Your task: Set custom headers using res.setHeader()
     // Add a header called 'X-Demo-Page' with value 'true'
     // Add a header called 'X-Middleware-Demo' with any message you want
-
+    res.setHeader('X-Demo-Page', 'true')
+    res.setHeader('X-Middleware-Demo', 'Congrats, you have found the special fancy message')
     next();
 };
 
