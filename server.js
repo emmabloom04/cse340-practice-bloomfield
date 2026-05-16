@@ -86,20 +86,19 @@ app.use((req, res, next) => {
 // Global middleware for time-based greeting
 app.use((req, res, next) => {
     const currentHour = new Date().getHours();
-
     /**
      * Create logic to set different greetings based on the current hour.
      * Use res.locals.greeting to store the greeting message.
      * Hint: morning (before 12), afternoon (12-17), evening (after 17)
      */
     if (currentHour < 12) {
-        res.locals.greeting = `<p>Good morning!</p>`;
+        res.locals.greeting = 'Good morning!';
     }
-    else if (currentHour > 12 && currentHour < 17) {
-        res.locals.greeting = `<p>Good afternoon!</p>`;
+    else if (currentHour >= 12 && currentHour < 17) {
+        res.locals.greeting = 'Good afternoon!';
     }
-    else if (currentHour > 17) {
-        res.locals.greeting = `<p>Good evening!</p>`;
+    else {
+        res.locals.greeting = 'Good evening!';
     }
 
     next();
