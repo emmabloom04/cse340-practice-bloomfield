@@ -202,4 +202,23 @@ body.dark-theme {
             color: #66b3ff;
         }
     }
+
+    .sections .section-list .section-card {
+        border-color: #444;
+        background: #2a2a2a;
+        color: #ddd;
+
+        .section-time {
+            color: #66b3ff;
+        }
+
+        .section-room,
+        .section-professor {
+            color: #aaa;
+        }
+    }
+
+    .navigation a {
+        color: #66b3ff;
+    }
 }
