@@ -108,8 +108,7 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
     const themes = ['blue-theme', 'green-theme', 'red-theme'];
 
-    // Your task: Pick a random theme from the array
-    const randomTheme = // Your random selection logic here
+    const randomTheme = themes[Math.floor(Math.random() * themes.length)];
     res.locals.bodyClass = randomTheme;
 
     next();
