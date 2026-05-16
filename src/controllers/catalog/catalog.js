@@ -32,3 +32,5 @@ const courseDetailPage = (req, res, next) => {
         currentSort: sortBy
     });
 };
+
+export { catalogPage, courseDetailPage }
