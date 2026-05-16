@@ -3,7 +3,9 @@ import { Router } from 'express';
 //create a new router instance
 const router = Router();
 
-// TODO: add import statements for controllers and middleware
+import { addDemoHeaders } from '../middleware/demo/headers.js';
+import { catalogPage, courseDetailPage } from './catalog/catalog.js';
+import { homePage, aboutPage, demoPage, testErrorPage } from './index.js';
 
 // TODO: add route definitions
 
