@@ -6,6 +6,21 @@
         <p class="course-description"><%= course.description %></p>
     </div>
 
+    <% if (Object.keys(queryParams).length > 0) { %>
+    <div class="sort-message">
+        <p>Current query parameters:</p>
+        <ul>
+            <% Object.entries(queryParams).forEach(([key, value]) => { %>
+                <li><%= key %>: <%= value %></li>
+            <% }); %>
+        </ul>
+    </div>
+    <% } else { %>
+    <div class="sort-message">
+        <p>No sorting applied, using default sorting by time.</p>
+    </div>
+    <% } %>
+
     <div class="sections">
         <div class="sections-header">
             <h2>Available Sections</h2>
