@@ -6,33 +6,34 @@
 // Include proper error handling for invalid faculty IDs
 // Export both functions
 
-import { getFacultyById, getSortedFaculty } from "../../models/faculty/faculty";
+import { getFacultyById, getSortedFaculty } from "../../models/faculty/faculty.js";
 
 // route handler for the faculty list page
 const facultyPage = (req, res) => {
-    const faculty = getSortedFaculty();
+    const facultyMembers = getSortedFaculty();
 
-    res.render('faculty', {
+    res.render('faculty/list', {
         title: 'Faculty List',
-        facultyMembers: faculty
-    })
+        facultyMembers: facultyMembers
+    });
 }
 
 // route handler for individual faculty detail pages
 const facultyDetailPage = (req, res, next) => {
     const facultyId = req.params.facultyId;
-    const facutly = getFacultyById(facultyId);
+    const facultyMember = getFacultyById(facultyId);
 
     // if faculty doesn't exist, create 404 error
-    if (!facutly) {
+    if (!facultyMember) {
         const err = new Error(`Faculty ${facultyId} not found`);
         err.status = 404;
         return next(err);
     }
 
-    res.render('faculty-detail', {
-        
-    })
+    res.render('faculty/detail', {
+        title: `${facultyMember.name}`,
+        faculty: facultyMember
+    });
 }
 
 export { facultyPage, facultyDetailPage }
