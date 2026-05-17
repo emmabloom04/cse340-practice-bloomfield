@@ -17,3 +17,22 @@ const facultyPage = (req, res) => {
         facultyMembers: faculty
     })
 }
+
+// route handler for individual faculty detail pages
+const facultyDetailPage = (req, res, next) => {
+    const facultyId = req.params.facultyId;
+    const facutly = getFacultyById(facultyId);
+
+    // if faculty doesn't exist, create 404 error
+    if (!facutly) {
+        const err = new Error(`Faculty ${facultyId} not found`);
+        err.status = 404;
+        return next(err);
+    }
+
+    res.render('faculty-detail', {
+        
+    })
+}
+
+export { facultyPage, facultyDetailPage }
