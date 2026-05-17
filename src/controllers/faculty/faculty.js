@@ -7,3 +7,13 @@
 // Export both functions
 
 import { getFacultyById, getSortedFaculty } from "../../models/faculty/faculty";
+
+// route handler for the faculty list page
+const facultyPage = (req, res) => {
+    const faculty = getSortedFaculty;
+
+    res.render('faculty', {
+        title: 'Faculty List',
+        facultyMembers: faculty
+    })
+}
