@@ -2,6 +2,17 @@
 <main>
     <h1>Faculty List</h1>
     <p>Here you can find the list of our lovely faculty. Click on any member to see more information about them.</p>
+    <div class="sections">
+        <div class="sections-header">
+            <h2>Faculty Members</h2>
+            <div class="sort-options">
+                <span>Sort by: </span>
+                <a href="/faculty?sort=name" class="<%= currentSort === 'name' ? 'active' : '' %>">Name</a>
+                <a href="/faculty?sort=department" class="<%= currentSort === 'department' ? 'active' : '' %>">Department</a>
+                <a href="/faculty?sort=title" class="<%= currentSort === 'title' ? 'active' : '' %>">Title</a>
+            </div>
+        </div>
+    </div>
     <div class="course-list">
         <% facultyMembers.forEach(member => { %>
             <div class="course-card">

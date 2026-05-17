@@ -10,11 +10,13 @@ import { getFacultyById, getSortedFaculty } from "../../models/faculty/faculty.j
 
 // route handler for the faculty list page
 const facultyPage = (req, res) => {
-    const facultyMembers = getSortedFaculty();
+    const sortBy = req.query.sort || 'name';
+    const facultyMembers = getSortedFaculty(sortBy);
 
     res.render('faculty/list', {
         title: 'Faculty List',
-        facultyMembers: facultyMembers
+        facultyMembers: facultyMembers,
+        currentSort: sortBy
     });
 }
 
