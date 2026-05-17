@@ -2,6 +2,14 @@
 <main>
     <h1>Faculty List</h1>
     <p>Here you can find the list of our lovely faculty. Click on any member to see more information about them.</p>
-
+    <div class="course-list">
+        <% facultyMembers.forEach(member => { %>
+            <div class="course-card">
+                <h3><a href="/faculty/<%= member.id %>"><%= member.name %></a></h3>
+                <p class="course-id"><%= member.title %> • <%= member.department %></p>
+                <p class="course-description"><%= member.email %></p>
+            </div>
+        <% }); %>
+    </div>
 </main>
 <%- include('../partials/footer') %>
