@@ -75,7 +75,14 @@ const faculty = {
 };
 
 const getFacultyById = (facultyId) => {
-    // TODO: Look up faculty member by ID, return null if not found
+    
+    let facultyMember = '';
+    for (const id in faculty) {
+        if (id == facultyId) {
+            return faculty[id];
+        }
+    }
+    return null;
 };
 
 const getSortedFaculty = (sortBy) => {
