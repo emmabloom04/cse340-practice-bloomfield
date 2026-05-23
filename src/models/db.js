@@ -6,6 +6,13 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const NODE_ENV = process.env.NODE_ENV?.toLowerCase() || 'production';
+const DB_URL = process.env.DB_URL;
+
+if (!DB_URL) {
+    throw new Error('DB_URL environment variable is required. Create a .env file with DB_URL=postgresql://user:password@host:port/database');
+}
+
 // Read the CA certificate content
 const caCert = fs.readFileSync(path.join(__dirname, '../../bin', 'byuicse-psql-cert.pem'));
 
