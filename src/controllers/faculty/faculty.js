@@ -23,8 +23,8 @@ const facultyPage = async (req, res) => {
 
 // route handler for individual faculty detail pages
 const facultyDetailPage = async (req, res, next) => {
-    const facultyId = req.params.facultyId;
-    const facultyMember = await getFacultyBySlug(facultyId);
+    const facultySlug = req.params.facultySlug;
+    const facultyMember = await getFacultyBySlug(facultySlug);
 
     // if faculty doesn't exist, create 404 error
     if (Object.keys(facultyMember).length === 0) {
