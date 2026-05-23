@@ -73,6 +73,7 @@ const addLocalVariables = (req, res, next) => {
     res.locals.bodyClass = randomTheme;
 
     setHeadAssetsFunctionality(res)
+    res.addStyle('<link rel="stylesheet" href="/css/main.css">', 1);
 
     next();
 }
