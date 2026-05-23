@@ -6,6 +6,8 @@ import { fileURLToPath } from 'url';
 import routes from './src/controllers/routes.js';
 import { addLocalVariables } from './src/middleware/global.js';
 
+import { setupDatabase, testConnection } from './src/models/setup.js';
+
 /**
  * Server configuration
  */
