@@ -72,6 +72,8 @@ const addLocalVariables = (req, res, next) => {
     const randomTheme = themes[Math.floor(Math.random() * themes.length)];
     res.locals.bodyClass = randomTheme;
 
+    setHeadAssetsFunctionality(res)
+
     next();
 }
 
