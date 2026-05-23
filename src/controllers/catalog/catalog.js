@@ -1,5 +1,5 @@
-import { getAllCourses, getCourseById } from '../../models/catalog/courses.js';
-import { getSectionsByCourseId } from '../../models/catalog/catalog.js';
+import { getAllCourses, getCourseBySlug } from '../../models/catalog/courses.js';
+import { getSectionsByCourseSlug } from '../../models/catalog/catalog.js';
 
 // route handler for the course catalog list page
 const catalogPage = async (req, res) => {
@@ -13,15 +13,16 @@ const catalogPage = async (req, res) => {
 
 // Route handler for individual course detail pages
 const courseDetailPage = async (req, res, next) => {
-    const courseId = req.params.courseId;
-    
-    // Model functions are async, so we must await them
-    const course = await getCourseById(courseId);
+
+    const courseSlug = req.params.slugId;
+    const course = await getCourseBySlug(courseSlug);
+    const sections = await getSectionsByCourseSlug(courseSlug, sortBy);
+
     
     // Our model returns empty object {} when not found, not null
     // Check if the object is empty using Object.keys()
     if (Object.keys(course).length === 0) {
-        const err = new Error(`Course ${courseId} not found`);
+        const err = new Error(`Course ${courseSlug} not found`);
         err.status = 404;
         return next(err);
     }
