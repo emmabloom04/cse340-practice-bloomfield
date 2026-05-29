@@ -19,6 +19,16 @@ body {
                 color: #0066cc;
             }
         }
+
+        nav select {
+            background-color: #555;
+            color: whitesmoke;
+            border-color: whitesmoke;
+        }
+
+        nav label {
+            color: whitesmoke;
+        }
     }
     nav {
         ul {
@@ -38,6 +48,27 @@ body {
 
             &:hover {
                 color: #0066cc;
+            }
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        select {
+            padding: 0.5rem;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: white;
+            color: #333;
+            cursor: pointer;
+            font-weight: 500;
+
+            &:focus {
+                outline: none;
+                border-color: #0066cc;
             }
         }
     }

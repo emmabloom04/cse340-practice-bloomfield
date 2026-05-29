@@ -74,6 +74,7 @@ const addLocalVariables = (req, res, next) => {
 
     setHeadAssetsFunctionality(res)
     res.addStyle('<link rel="stylesheet" href="/css/main.css">', 1);
+    res.addScript('<script src="/js/theme-switcher.js"></script>', 0);
 
     next();
 }
