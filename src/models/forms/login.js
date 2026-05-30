@@ -23,8 +23,8 @@ const findUserByEmail = async (email) => {
  * @returns {Promise<boolean>} True if password matches, false otherwise
  */
 const verifyPassword = async (plainPassword, hashedPassword) => {
-    // TODO: Use bcrypt.compare() to verify the password
-    // TODO: Return the result (true/false)
+
+    return await bcrypt.compare(plainPassword, hashedPassword);
 };
 
 export { findUserByEmail, verifyPassword };
