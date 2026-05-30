@@ -9,10 +9,14 @@ import db from '../db.js';
  */
 const findUserByEmail = async (email) => {
     // TODO: Write SELECT query for id, name, email, password, created_at
-    // TODO: Use LOWER() on both sides for case-insensitive email comparison
-    // TODO: Use $1 placeholder for email parameter
-    // TODO: Add LIMIT 1 to ensure only one result
-    // TODO: Execute query and return first row or null
+    const query = `
+        SELECT id, name, email, created_at
+        FROM users
+        WHERE LOWER(email) = LOWER($1)
+        LIMIT 1
+    `;
+    const result = await db.query(query, [email]);
+    return result.rows[0] || null;
 };
 
 /**
