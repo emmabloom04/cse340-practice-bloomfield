@@ -37,7 +37,7 @@ const registrationValidation = [
  * Display the registration form page.
  */
 const showRegistrationForm = (req, res) => {
-    res.render('forms/registration/from', {
+    res.render('forms/register/from', {
         title: 'User Registration'
     }); 
 };
@@ -53,7 +53,7 @@ const processRegistration = async (req, res) => {
         // Log validation errors for developer debugging
         console.error('Validation errors:', errors.array());
         // Redirect to registration form without saving
-        return res.direct('/registration')
+        return res.direct('/register')
     }
 
     // Extract validated data from request body
@@ -81,11 +81,11 @@ const processRegistration = async (req, res) => {
         // Log success message to console
         console.log('Registration completed successfully');
         // Redirect to /register/list to show successful registration
-        res.redirect('/registration/list')
+        res.redirect('/register/list')
         // NOTE: Later when we add authentication, we'll change this to require login first
     } catch (error) {
         console.error('Error with registration:', error);
-        res.redirect('/registration');
+        res.redirect('/register');
     }
 };
 
