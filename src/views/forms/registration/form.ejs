@@ -34,9 +34,11 @@
         </div>
 
         <!-- Password confirmation field -->
-        <!-- TODO: Similar to password field but for passwordConfirm -->
-        <!-- TODO: Use name="passwordConfirm" and appropriate label -->
-
+        <div class="form-group">
+            <label for="passwordConfirm">Confirm Password</label>
+            <input type="password" id="passwordConfirm" name="passwordConfirm" minlength="8" pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).*" required>
+        </div>
+        
         <!-- Submit button -->
         <!-- TODO: Add button type="submit" with text like "Create Account" -->
     </form>
