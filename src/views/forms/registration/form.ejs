@@ -25,13 +25,13 @@
         </div>
 
         <!-- Password field -->
-        <!-- TODO: Create form-group div -->
-        <!-- TODO: Add label for password -->
-        <!-- TODO: Add input type="password" -->
-        <!-- TODO: Add minlength="8" and required attributes -->
-        <!-- TODO: Add pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).*" for validation -->
-        <!-- TODO: Add a div with class="help-text" explaining requirements -->
-        <!-- HINT: "Must be at least 8 characters with a number and special character" -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" minlength="8" pattern="(?=.*[0-9])(?=.*[!@#$%^&*]).*" required>
+            <div class="help-text">
+                Must be at least 8 characters with a number and special character
+            </div>
+        </div>
 
         <!-- Password confirmation field -->
         <!-- TODO: Similar to password field but for passwordConfirm -->
