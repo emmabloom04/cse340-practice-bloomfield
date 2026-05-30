@@ -84,8 +84,8 @@ const processRegistration = async (req, res) => {
         res.redirect('/registration/list')
         // NOTE: Later when we add authentication, we'll change this to require login first
     } catch (error) {
-        // TODO: Log the error to console
-        // TODO: Redirect back to /register
+        console.error('Error with registration:', error);
+        res.redirect('/registration');
     }
 };
 
