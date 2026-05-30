@@ -8,7 +8,6 @@ import db from '../db.js';
  * @returns {Promise<Object|null>} User object with password hash or null if not found
  */
 const findUserByEmail = async (email) => {
-    // TODO: Write SELECT query for id, name, email, password, created_at
     const query = `
         SELECT id, name, email, created_at
         FROM users
