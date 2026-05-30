@@ -62,6 +62,13 @@ router.use('/contact', contactRoutes);
 // Registration routes
 router.use('/register', registrationRoutes);
 
+// Login routes (form and submission)
+router.use('/login', loginRoutes);
+
+// Authentication-related routes at root level
+router.get('/logout', processLogout);
+router.get('/dashboard', requireLogin, showDashboard);
+
 // Route to trigger a test error
 router.get('/test-error', testErrorPage);
 
