@@ -28,18 +28,17 @@
             box-sizing: border-box;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
-            &:focus {
-                outline: none;
-                border-color: #2c5aa0;
-                box-shadow: 0 0 5px rgba(44, 90, 160, 0.3);
-            }
-
             &:invalid {
                 border-color: #dc3545;
             }
 
             &:valid {
                 border-color: #28a745;
+            }
+            &:focus {
+                outline: none;
+                border-color: #2c5aa0;
+                box-shadow: 0 0 5px rgba(44, 90, 160, 0.3);
             }
         }
 
