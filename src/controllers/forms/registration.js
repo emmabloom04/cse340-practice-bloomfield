@@ -100,3 +100,20 @@ const showAllUsers = async (req, res) => {
     // TODO: Render the users list view (forms/registration/list)
     // TODO: Pass title: 'Registered Users' and the users variable in the data object
 };
+
+/**
+ * GET /register - Display the registration form
+ */
+router.get('/', showRegistrationForm);
+
+/**
+ * POST /register - Handle registration form submission with validation
+ */
+router.post('/', registrationValidation, processRegistration);
+
+/**
+ * GET /register/list - Display all registered users
+ */
+router.get('/list', showAllUsers);
+
+export default router;
