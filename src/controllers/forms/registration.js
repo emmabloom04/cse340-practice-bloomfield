@@ -63,12 +63,11 @@ const processRegistration = async (req, res) => {
 
     try {
         // Check if email already exists in database
-        // TODO: Call emailExists(email) and store the result in a variable
+        const alreadyExists = await emailExists(email);
 
-        if (/* TODO: check if email exists */) {
-            // TODO: Log message: 'Email already registered'
-            // TODO: Redirect back to /register
-            return;
+        if (alreadyExists) {
+            console.log('Email already registered');
+            return res.redirect('/register');
         }
 
         // Hash the password before saving to database
