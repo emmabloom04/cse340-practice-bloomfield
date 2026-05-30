@@ -119,6 +119,7 @@ body.dark-theme {
         }
         input,
         textarea {
+            color: white;
             border-color: #444;
             background-color: #1e1e1e;
             &:focus {
