@@ -37,7 +37,7 @@ const registrationValidation = [
  * Display the registration form page.
  */
 const showRegistrationForm = (req, res) => {
-    res.render('forms/registration/from', {
+    res.render('forms/registration/form', {
         title: 'User Registration'
     }); 
 };
