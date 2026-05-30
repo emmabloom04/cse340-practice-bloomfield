@@ -77,6 +77,7 @@ const processRegistration = async (req, res) => {
 
         // Save user to database with hashed password
         // TODO: Call saveUser(name, email, hashedPassword)
+        await saveUser(name, email, password)
 
         // Log success message to console
         console.log('Registration completed successfully');
