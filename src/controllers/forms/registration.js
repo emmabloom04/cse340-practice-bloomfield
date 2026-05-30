@@ -72,12 +72,11 @@ const processRegistration = async (req, res) => {
         }
 
         // Hash the password before saving to database
-        // TODO: Use bcrypt.hash(password, 10) to hash the password
-        // TODO: Store the result in a variable called hashedPassword
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         // Save user to database with hashed password
-        // TODO: Call saveUser(name, email, hashedPassword)
-        await saveUser(name, email, password)
+        // Call saveUser(name, email, hashedPassword)
+        await saveUser(name, email, hashedPassword);
 
         // Log success message to console
         console.log('Registration completed successfully');
