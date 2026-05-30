@@ -50,9 +50,10 @@ const processRegistration = async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        // TODO: Log validation errors to console for debugging
-        // TODO: Redirect back to /register
-        return;
+        // Log validation errors for developer debugging
+        console.error('Validation errors:', errors.array());
+        // Redirect to registration form without saving
+        return res.direct('/registration')
     }
 
     // Extract validated data from request body
