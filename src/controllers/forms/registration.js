@@ -37,7 +37,7 @@ const registrationValidation = [
  * Display the registration form page.
  */
 const showRegistrationForm = (req, res) => {
-    res.render('forms/register/from', {
+    res.render('forms/registration/from', {
         title: 'User Registration'
     }); 
 };
@@ -53,7 +53,7 @@ const processRegistration = async (req, res) => {
         // Log validation errors for developer debugging
         console.error('Validation errors:', errors.array());
         // Redirect to registration form without saving
-        return res.direct('/register')
+        return res.redirect('/register')
     }
 
     // Extract validated data from request body
@@ -94,14 +94,16 @@ const showAllUsers = async (req, res) => {
     let users = [];
 
     try {
-        // TODO: Call getAllUsers() and assign to users variable
+        users = await getAllUsers();
     } catch (error) {
-        // TODO: Log the error to console
+        console.error('Error retrieving users:', error);
         // users remains empty array on error
     }
 
-    // TODO: Render the users list view (forms/registration/list)
-    // TODO: Pass title: 'Registered Users' and the users variable in the data object
+    res.render('forms/registration/list', {
+        title: 'Registered Users',
+        users
+    })
 };
 
 /**
