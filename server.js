@@ -55,6 +55,9 @@ app.use(session({
     }
 }));
 
+// Start automatic session cleanup
+startSessionCleanup();
+
 /**
  * Configure Express
  */
