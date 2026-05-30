@@ -44,14 +44,18 @@ const processLogin = async (req, res) => {
 
     try {
         const userFound = await findUserByEmail(email);
-        
+
         if (!userFound) {
             console.log("User not found")
             res.redirect('/login')
         }
 
-        // TODO: Verify password using verifyPassword(password, user.password)
-        // TODO: If password incorrect, log "Invalid password" and redirect to /login
+        const correctPassword = await verifyPassword(password, user.password);
+
+        if (!correctPassword) {
+            console.log("Invalid password");
+            res.redirect('/login');
+        }
 
         // SECURITY: Remove password from user object before storing in session
         delete user.password;
