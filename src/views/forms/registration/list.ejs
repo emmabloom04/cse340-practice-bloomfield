@@ -2,7 +2,7 @@
 <main>
     <h1><%= title %></h1>
 
-    <!-- TODO: Check if users array exists and has content using: if (users && users.length > 0) -->
+     <% if (users && users.length > 0) { %>
 
         <div class="users-list">
             <!-- TODO: Loop through users array with forEach -->
@@ -30,11 +30,9 @@
 
             <!-- TODO: End the forEach loop -->
         </div>
-
-    <!-- TODO: Add else clause -->
-        <!-- TODO: Add paragraph with class="no-users" -->
-        <!-- TODO: Display message: "No users registered yet." -->
-    <!-- TODO: Close the if/else block -->
+        <% } else { %>
+            <p class="no-users">No users registered yet.</p>
+        <% } %>
 
 </main>
 <%- include('../../partials/footer') %>
