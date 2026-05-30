@@ -205,3 +205,26 @@
         width: 100px;
     }
 }
+
+/* dark theme overrides */
+body.dark-theme {
+    .login-form {
+        border-color: #444;
+        background: #1e1e1e;
+        color: #ddd;
+        h2 {
+            color: #66b3ff;
+        }
+        label {
+            color: #ddd;
+        }
+        input {
+            border-color: #444;
+            background-color: #1e1e1e;
+            color: white;
+            &:foucs {
+                border-color: #61a0ff;
+            }
+        }
+    }
+}
