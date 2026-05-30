@@ -148,3 +148,69 @@
         font-style: italic;
     }
 }
+
+/* dark theme overrides */
+body.dark-theme {
+    .registration-form {
+        border-color: #444;
+        background: #1e1e1e;
+        color: #ddd;
+        h2 {
+            color: #66b3ff;
+        }
+        label {
+            color: #ddd;
+        }
+        input,
+        textarea {
+            border-color: #444;
+            background-color: #1e1e1e;
+            &:focus {
+                border-color: #61a0ff;
+            }
+        }
+    }
+    .users-list {
+        .user-card {
+            background-color: #1e1e1e;
+            border-color: #444;
+
+            .response-subject {
+                color: #66b3ff;
+            }
+
+            .response-message {
+                color: #aaa;
+            }
+
+            .response-date {
+                color: #ddd;
+            }
+            .user-header {
+                border-bottom: 2px solid #66b3ff;
+
+                h3 {
+                    color: #66b3ff;
+                }
+
+                .user-id {
+                    background-color: #666;
+                    color: #e9ecef;
+                }
+            }
+
+            .user-details {
+                .detail-item {
+                    .label {
+                        color: #aaa;
+
+                    }
+
+                    .value {
+                        color: #ddd;
+                    }
+                }
+            }
+        }
+    }
+}

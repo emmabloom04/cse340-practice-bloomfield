@@ -137,15 +137,10 @@ body.dark-theme {
 
             .response-message {
                 color: #aaa;
-                line-height: 1.6;
-                margin: 0 0 1rem 0;
-                white-space: pre-wrap;
             }
 
             .response-date {
                 color: #ddd;
-                font-size: 0.875rem;
-                margin: 0;
             }
         }
     }
