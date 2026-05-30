@@ -8,6 +8,10 @@ import { addLocalVariables } from './src/middleware/global.js';
 
 import { setupDatabase, testConnection } from './src/models/setup.js';
 
+import session from 'express-session';
+import connectPgSimple from 'connect-pg-simple';
+import { caCert } from './src/models/db.js';
+
 /**
  * Server configuration
  */
