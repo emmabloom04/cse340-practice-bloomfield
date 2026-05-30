@@ -9,7 +9,7 @@ import db from '../db.js';
  */
 const findUserByEmail = async (email) => {
     const query = `
-        SELECT id, name, email, created_at
+        SELECT id, name, email, password, created_at
         FROM users
         WHERE LOWER(email) = LOWER($1)
         LIMIT 1
@@ -27,7 +27,9 @@ const findUserByEmail = async (email) => {
  */
 const verifyPassword = async (plainPassword, hashedPassword) => {
 
-    return await bcrypt.compare(plainPassword, hashedPassword);
+    const correctPassword = await bcrypt.compare(plainPassword, hashedPassword);
+
+    return correctPassword;
 };
 
 export { findUserByEmail, verifyPassword };

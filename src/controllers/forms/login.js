@@ -43,18 +43,18 @@ const processLogin = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const userFound = await findUserByEmail(email);
+        const user = await findUserByEmail(email);
 
-        if (!userFound) {
+        if (!user) {
             console.log("User not found")
-            res.redirect('/login')
+            return res.redirect('/login')
         }
 
         const correctPassword = await verifyPassword(password, user.password);
 
         if (!correctPassword) {
             console.log("Invalid password");
-            res.redirect('/login');
+            return res.redirect('/login');
         }
 
         // SECURITY: Remove password from user object before storing in session
@@ -129,7 +129,7 @@ const showDashboard = (req, res) => {
         delete sessionData.user.password;
     }
 
-    res.render('/dashboard', {
+    res.render('dashboard', {
         title: 'Dashboard',
         user,
         sessionData
