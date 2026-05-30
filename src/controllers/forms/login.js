@@ -23,8 +23,9 @@ const loginValidation = [
  * Display the login form.
  */
 const showLoginForm = (req, res) => {
-    // TODO: Render the login form view (forms/login/form)
-    // TODO: Pass title: 'User Login'
+    res.render('forms/login/form', {
+        title: 'User Login'
+    });
 };
 
 /**
