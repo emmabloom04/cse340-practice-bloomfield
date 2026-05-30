@@ -59,8 +59,6 @@ const processRegistration = async (req, res) => {
     // Extract validated data from request body
     const { name, email, password } = req.body;
 
-    // TODO: Destructure name, email, password from req.body
-
     try {
         // Check if email already exists in database
         const alreadyExists = await emailExists(email);
