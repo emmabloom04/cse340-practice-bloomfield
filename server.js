@@ -12,6 +12,8 @@ import session from 'express-session';
 import connectPgSimple from 'connect-pg-simple';
 import { caCert } from './src/models/db.js';
 
+import { startSessionCleanup } from './src/utils/session-cleanup.js';
+
 /**
  * Server configuration
  */
