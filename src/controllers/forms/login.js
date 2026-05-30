@@ -60,12 +60,12 @@ const processLogin = async (req, res) => {
         // SECURITY: Remove password from user object before storing in session
         delete user.password;
 
-        // TODO: Store user in session: req.session.user = user
-        // TODO: Redirect to /dashboard
+        req.session.user = user;
+        res.redirect('/dashboard');
+
     } catch (error) {
-        // Model functions do not catch errors, so handle them here
-        // TODO: Log error to console
-        // TODO: Redirect to /login
+        console.log("Error logging in:", error)
+        res.redirect('/login')
     }
 };
 
