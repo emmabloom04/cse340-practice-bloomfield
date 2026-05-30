@@ -9,6 +9,10 @@ import { facultyPage, facultyDetailPage } from './faculty/faculty.js';
 import contactRoutes from './forms/contact.js';
 import registrationRoutes from './forms/registration.js';
 
+import loginRoutes from './forms/login.js';
+import { processLogout, showDashboard } from './forms/login.js';
+import { requireLogin } from '../middleware/auth.js';
+
 const router = Router();
 // Add catalog-specific styles to all catalog routes
 router.use('/catalog', (req, res, next) => {
