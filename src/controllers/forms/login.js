@@ -36,16 +36,19 @@ const processLogin = async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        // TODO: Log validation errors to console
-        // TODO: Redirect back to /login
-        return;
+        console.log("There was an error with login:", errors.array())
+        return res.redirect('/login');
     }
 
-    // TODO: Extract email and password from req.body
+    const { email, password } = req.body;
 
     try {
-        // TODO: Find user by email using findUserByEmail()
-        // TODO: If not found, log "User not found" and redirect to /login
+        const userFound = await findUserByEmail(email);
+        
+        if (!userFound) {
+            console.log("User not found")
+            res.redirect('/login')
+        }
 
         // TODO: Verify password using verifyPassword(password, user.password)
         // TODO: If password incorrect, log "Invalid password" and redirect to /login
