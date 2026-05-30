@@ -49,6 +49,9 @@ router.get('/demo', addDemoHeaders, demoPage);
 // Contact form routes
 router.use('/contact', contactRoutes);
 
+// Registration routes
+router.use('/register', registrationRoutes);
+
 // Route to trigger a test error
 router.get('/test-error', testErrorPage);
 
