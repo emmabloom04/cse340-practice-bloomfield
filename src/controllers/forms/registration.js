@@ -78,8 +78,10 @@ const processRegistration = async (req, res) => {
         // Save user to database with hashed password
         // TODO: Call saveUser(name, email, hashedPassword)
 
-        // TODO: Log success message to console
-        // TODO: Redirect to /register/list to show successful registration
+        // Log success message to console
+        console.log('Registration completed successfully');
+        // Redirect to /register/list to show successful registration
+        res.redirect('/registration/list')
         // NOTE: Later when we add authentication, we'll change this to require login first
     } catch (error) {
         // TODO: Log the error to console
