@@ -37,8 +37,9 @@ const registrationValidation = [
  * Display the registration form page.
  */
 const showRegistrationForm = (req, res) => {
-    // TODO: Render the registration form view (forms/registration/form)
-    // TODO: Pass title: 'User Registration' in the data object
+    res.render('forms/registration/from', {
+        title: 'User Registration'
+    }); 
 };
 
 /**
