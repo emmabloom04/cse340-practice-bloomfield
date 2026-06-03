@@ -23,9 +23,10 @@ const handleContactSubmission = async (req, res) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        // Log validation errors for developer debugging
-        console.error('Validation errors:', errors.array());
-        // Redirect back to form without saving
+        // Store each validation error as a separate flash message
+        errors.array().forEach(error => {
+            req.flash('error', error.msg);
+        });
         return res.redirect('/contact');
     }
 
@@ -37,7 +38,7 @@ const handleContactSubmission = async (req, res) => {
         await createContactForm(subject, message);
         console.log('Contact form submitted successfully');
         // Redirect to responses page on success
-        res.redirect('/contact/responses');
+        res.redirect('/contact');
     } catch (error) {
         console.error('Error saving contact form:', error);
         res.redirect('/contact');
