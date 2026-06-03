@@ -72,6 +72,9 @@ app.set('views', path.join(__dirname, 'src/views'));
  */
 app.use(addLocalVariables);
 
+// Flash message middleware (must come after session and global middleware)
+app.use(flash);
+
 // Allow Express to receive and process POST data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
