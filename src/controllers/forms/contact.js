@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { body, validationResult } from 'express-validator';
 import { createContactForm, getAllContactForms } from '../../models/forms/contact.js';
+import { requireLogin } from '../../middleware/auth.js';
 
 const router = Router();
 
@@ -89,6 +90,6 @@ router.post('/',
 /**
  * GET /contact/responses - Display all contact form submissions
  */
-router.get('/responses', showContactResponses);
+router.get('/responses', requireLogin, showContactResponses);
 
 export default router;
