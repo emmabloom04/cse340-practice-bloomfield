@@ -65,7 +65,7 @@ const processRegistration = async (req, res) => {
         const alreadyExists = await emailExists(email);
 
         if (alreadyExists) {
-            console.log('Email already registered');
+            res.flash('warning', 'An account with this email already exists')
             return res.redirect('/register');
         }
 
