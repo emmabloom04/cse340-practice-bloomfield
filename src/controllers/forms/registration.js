@@ -65,7 +65,7 @@ const processRegistration = async (req, res) => {
         const alreadyExists = await emailExists(email);
 
         if (alreadyExists) {
-            res.flash('warning', 'An account with this email already exists')
+            req.flash('warning', 'An account with this email already exists')
             return res.redirect('/register');
         }
 
@@ -76,13 +76,13 @@ const processRegistration = async (req, res) => {
         // Call saveUser(name, email, hashedPassword)
         await saveUser(name, email, hashedPassword);
 
-        res.flash('success', 'Registration successful');
+        req.flash('success', 'Registration successful');
         res.redirect('/login');
 
         // NOTE: Later when we add authentication, we'll change this to require login first
     } catch (error) {
         console.error('Error with registration:', error);
-        res.flash('error', 'Error with registration. Please try again later.');
+        req.flash('error', 'Error with registration. Please try again later.');
         res.redirect('/register');
     }
 };
