@@ -14,6 +14,8 @@ import { caCert } from './src/models/db.js';
 
 import { startSessionCleanup } from './src/utils/session-cleanup.js';
 
+import flash from './src/middleware/flash.js';
+
 /**
  * Server configuration
  */
