@@ -49,14 +49,14 @@ const processLogin = async (req, res) => {
         const user = await findUserByEmail(email);
 
         if (!user) {
-            console.log("User not found")
+            req.flash('error', 'Invalid email or password')
             return res.redirect('/login')
         }
 
         const correctPassword = await verifyPassword(password, user.password);
 
         if (!correctPassword) {
-            console.log("Invalid password");
+            req.flash('error', 'Invalid email or password');
             return res.redirect('/login');
         }
 
