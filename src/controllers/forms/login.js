@@ -68,6 +68,7 @@ const processLogin = async (req, res) => {
 
     } catch (error) {
         console.log("Error logging in:", error)
+        req.flash('error', 'Error loggin in. Please try again later.');
         res.redirect('/login')
     }
 };
