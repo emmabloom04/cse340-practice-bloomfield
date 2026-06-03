@@ -76,12 +76,13 @@ const processRegistration = async (req, res) => {
         // Call saveUser(name, email, hashedPassword)
         await saveUser(name, email, hashedPassword);
 
-        res.flash('success', 'Registration successful')
-        res.redirect('/login')
+        res.flash('success', 'Registration successful');
+        res.redirect('/login');
 
         // NOTE: Later when we add authentication, we'll change this to require login first
     } catch (error) {
         console.error('Error with registration:', error);
+        res.flash('error', 'Error with registration. Please try again later.');
         res.redirect('/register');
     }
 };
