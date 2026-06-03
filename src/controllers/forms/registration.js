@@ -76,8 +76,7 @@ const processRegistration = async (req, res) => {
         // Call saveUser(name, email, hashedPassword)
         await saveUser(name, email, hashedPassword);
 
-        // Log success message to console
-        console.log('Registration completed successfully');
+        res.flash('success', 'Registration successful')
         res.redirect('/login')
 
         // NOTE: Later when we add authentication, we'll change this to require login first
