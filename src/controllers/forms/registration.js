@@ -12,7 +12,7 @@ const router = Router();
 const registrationValidation = [
     body('name')
         .trim()
-        .isLength({ min: 2 })
+        .isLength({ min: 2, max: 100 })
         .withMessage('Name must be at least 2 characters'),
     body('email')
         .trim()
