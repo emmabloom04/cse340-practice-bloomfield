@@ -184,6 +184,11 @@
     background: url('https://placehold.co/480') center / cover no-repeat;
 }
 
+.faculty-header {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
 /* Dark theme overrides */
 body.dark-theme {
     .course-list .course-card {
