@@ -28,11 +28,16 @@ const registrationValidation = [
         .custom((value, { req }) => value === req.body.email)
         .withMessage('Email addresses must match'),
     body('password')
-        .isLength({ min: 8 })
+        .isLength({ min: 8, max: 128 })
+        .withMessage('Password must be between 8 and 128 characters')
         .matches(/[0-9]/)
         .withMessage('Password must contain at least one number')
-        .matches(/[!@#$%^&*]/)
-        .withMessage('Password must contain at least one special character'),
+        .matches(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/)
+        .withMessage('Password must contain at least one special character')
+        .matches(/[a-z]/)
+        .withMessage('Password must contain at least one lowercase letter')
+        .matches(/[A-Z]/)
+        .withMessage('Password must contain at least one uppercase letter'),
     body('passwordConfirm')
         .custom((value, { req }) => value === req.body.password)
         .withMessage('Passwords must match')
