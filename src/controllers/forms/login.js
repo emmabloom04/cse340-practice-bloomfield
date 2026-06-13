@@ -17,8 +17,10 @@ const loginValidation = [
         .withMessage('Email address is too long'),
 
     body('password')
-        .isLength({ min: 8 })
+        .notEmpty()
         .withMessage('Password is required')
+        .isLength({ min: 8, max: 128 })
+        .withMessage('Password must be between 8 and 128 characters')
 ];
 
 /**
