@@ -153,6 +153,37 @@
     }
 }
 
+.faculty-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    h3, p {
+        grid-column: 1/2;
+        align-self: start;
+    }
+    h3 {
+        grid-row: 1/2;
+    }
+}
+.faculty-id {
+    grid-row: 2/3;
+}
+.faculty-email {
+    grid-row: 3/4
+}
+.faculty-photo {
+    align-self: center;
+    justify-self: end;
+    grid-row: 1/4;
+    width: 100px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 7px;
+    background: url('https://placehold.co/480') center / cover no-repeat;
+}
+
 /* Dark theme overrides */
 body.dark-theme {
     .course-list .course-card {

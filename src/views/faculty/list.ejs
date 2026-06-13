@@ -15,10 +15,11 @@
     </div>
     <div class="course-list">
         <% facultyMembers.forEach(member => { %>
-            <div class="course-card">
+            <div class="course-card faculty-card">
                 <h3><a href="/faculty/<%= member.slug %>"><%= member.name %></a></h3>
-                <p class="course-id"><%= member.title %> • <%= member.department %></p>
-                <p class="course-description"><%= member.office %> • <%= member.email %></p>
+                <p class="course-id faculty-id"><%= member.title %> • <%= member.department %></p>
+                <p class="course-description faculty-email"><%= member.office %> • <%= member.email %></p>
+                <img class="faculty-photo" src="/images/faculty/<%= member.slug %>.jpg" alt="<%= member.name %>">
             </div>
         <% }); %>
     </div>
