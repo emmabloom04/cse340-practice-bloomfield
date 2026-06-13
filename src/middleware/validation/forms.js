@@ -88,3 +88,10 @@ const editValidation = [
         .isLength({ max: 255 })
         .withMessage('Email address is too long')
 ];
+
+export { 
+    contactValidation, 
+    registrationValidation, 
+    loginValidation,
+    editValidation
+};
